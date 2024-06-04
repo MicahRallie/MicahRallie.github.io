@@ -45,10 +45,10 @@ $(function () {
     // example usage: createPlatform(x,y,width,height)
 
     //Specific wall
-      createPlatform(270, 100, 10, 200)
+      createPlatform(370, 20, 10, 150)
 
     //Main path
-      createPlatform(50, 350, 150, 20)
+      createPlatform(50, 150, 150, 20)
       createPlatform(250, 500, 50, 20)
       createPlatform(500, 450, 100, 20)
       createPlatform(650, 320, 100, 20)
@@ -57,13 +57,18 @@ $(function () {
 
     //Abovehead path
       createPlatform(1200, 200, 100, 20)
-      createPlatform(340, 150, 200, 20)
-      createPlatform(850, 150, 200, 20)
+      createPlatform(380, 150, 200, 20)
+      createPlatform(800, 150, 200, 20)
+      createPlatform(665, 150, 50, 20)
 
     //Secret collectable
       createPlatform(50, 700, 50, 20)
 
-      
+    //Below Cannon Collectable
+      createPlatform(1200, 500, 100, 20)
+      createPlatform(1000, 550, 100, 20)
+
+    // NOTE TO SELF! Ask Mr. Johnson how to change the text
 
     
     // TODO 2
@@ -73,7 +78,8 @@ $(function () {
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
     createCollectable("kennedi", 50, 650, 20, 0.5)
-    createCollectable("steve", 400, 20, 20, 0.5)
+    createCollectable("steve", 450, 20, 20, 0.5)
+    createCollectable("grace", 1230, 450, 20, 0.5)
 
     // TODO 3
     // Create cannons
@@ -81,7 +87,10 @@ $(function () {
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
 
-
+      createCannon("right", 350, 3000)
+      createCannon("right", 490, 4000)
+      createCannon("top", 680, 6000)
+      createCannon("top", 820, 6000)
 
 
     /////////////////////////////////////////////////
