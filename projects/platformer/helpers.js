@@ -525,6 +525,7 @@ function createPlatform(x, y, width, height) {
   platforms.push({ x, y, width, height });
 }
 
+
 function createCannon(
   wallLocation,
   position,
