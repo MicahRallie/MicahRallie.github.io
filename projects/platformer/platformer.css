@@ -11,5 +11,6 @@ img {
 }
 
 #specialMessage{
-  background-color: lightgray;
+  background-color: rgb(80, 34, 80);
+  color:antiquewhite
 }
