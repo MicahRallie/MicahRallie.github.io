@@ -68,7 +68,7 @@ $(function () {
 
     //Below Cannon Collectable
       createPlatform(1200, 500, 100, 20)
-      createPlatform(1000, 550, 100, 20)
+      createPlatform(1000, 530, 100, 20)
 
     // NOTE TO SELF! Ask Mr. Johnson how to change the text
 
@@ -93,9 +93,6 @@ $(function () {
       createCannon("right", 490, 4000)
       createCannon("top", 680, 6000)
       createCannon("top", 820, 6000)
-
-
-     
 
     /////////////////////////////////////////////////
     //////////ONLY CHANGE ABOVE THIS POINT///////////
