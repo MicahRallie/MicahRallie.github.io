@@ -63,6 +63,8 @@ $(function () {
 
     //Secret collectable
       createPlatform(50, 700, 50, 20)
+      createPlatform(250, 700, 50, 20)
+      createPlatform(400, 620, 50, 20)
 
     //Below Cannon Collectable
       createPlatform(1200, 500, 100, 20)
