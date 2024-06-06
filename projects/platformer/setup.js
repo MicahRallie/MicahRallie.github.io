@@ -99,4 +99,8 @@ var collectableList = {
   steve: { image: "images/collectables/steve-head.png" },
   flower: { image: "images/collectables/Flower.jpg" },
   flower2: { image: "images/collectables/flower2.jpg" },
+  flower3: { image: "images/collectables/flower3.jpg" },
+  flower4: { image: "images/collectables/flower4.jpg" },
+  flower5: { image: "images/collectables/flower5.jpg" },
+  flower6: { image: "images/collectables/flower6.jpg" },
 };
