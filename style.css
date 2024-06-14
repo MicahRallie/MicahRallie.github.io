@@ -1,9 +1,9 @@
 body {
   background-color:rgb(97, 46, 122);
-  background-image: url("");
+  background-image: url("project-instructions/img/flowersForTheFifthiethTime.jpg");
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 100% 130%;
+  background-size: 100% 170%;
   color: rgb(45, 45, 45);
   padding: 10px;
   font-family: arial;
@@ -17,9 +17,9 @@ body {
 nav {
   background: rgb(20, 10, 8);
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
-  padding: 10px;
+  padding: 20px;
 }
 h1 {
   display: flex;
