@@ -1,5 +1,9 @@
 body {
-  background: rgb(123, 74, 133);
+  background-color:rgb(97, 46, 122);
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 130%;
   color: rgb(45, 45, 45);
   padding: 10px;
   font-family: arial;
@@ -38,7 +42,11 @@ a {
 
 /* main container area beneath menu */
 main {
-  background: rgb(245, 238, 219);
+  background-image: url("project-instructions/img/backgroundthing2.jpg");
+  background-color: #fff;
+  background-position: 100% 100%;
+  background-size: 40% 60%;
+  background-repeat: no-repeat;
   display: flex;
 }
 .sidebar {
