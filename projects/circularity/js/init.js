@@ -26,11 +26,9 @@ var init = function (window) {
       circles.push(circle);
     }
     // TODO 3 / 7 : Call the drawCircle() function
-    drawCircle()
-    drawCircle()
-    drawCircle()
-    drawCircle()
-    drawCircle()
+    for (var loopsCompleted = 0; loopsCompleted < 100; loopsCompleted++) {
+      drawCircle();
+    }
     ////////////////////////////////////////////////////////////
     ///////////////// PROGRAM LOGIC ////////////////////////////
     ////////////////////////////////////////////////////////////
