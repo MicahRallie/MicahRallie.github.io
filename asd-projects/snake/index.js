@@ -110,7 +110,7 @@ function moveSnake() {
   column/row properties. 
   
   */
- for ( /* code to loop through the indexes of the snake.body Array*/ ) {
+ for (var i = 1; 1 < snake.body.length; i++) {
     var snakeSquare = "???";
 
     var nextSnakeSquare = "???";
