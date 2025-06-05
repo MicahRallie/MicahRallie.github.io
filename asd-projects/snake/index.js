@@ -14,11 +14,7 @@ var highScoreElement = $("#highScore");
 // TODO 4a: Create the snake, apple and score variables
 // Game Variables
 var snake = {};
-var apple = {
-  element: html,
-  row: position.x,
-  column: position.y,
-};
+var apple = {};
 var score = 0;
 // Constant Variables
 var ROWS = 20;
@@ -53,7 +49,6 @@ function init() {
   // TODO 4b-2: initialize the apple
   makeApple();
   // TODO 5a: Initialize the interval
-
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -193,10 +188,9 @@ function endGame() {
  */
 function makeApple() {
   // TODO 4b-1: Fill in the makeApple() code block
-  /* Create an HTML element for the apple using jQuery. Then find a random
+ /* Create an HTML element for the apple using jQuery. Then find a random
  * position on the board that is not occupied and position the apple there.
  */
-function makeApple() {
   // make the apple jQuery Object and append it to the board
   apple.element = $("<div>").addClass("apple").appendTo(board);
 
@@ -210,7 +204,7 @@ function makeApple() {
   // position the apple on the screen
   repositionSquare(apple);
 }
-}
+
 
 /* Create an HTML element for a snakeSquare using jQuery. Then, given a row and
  * column on the board, position it on the screen. Finally, add the new
@@ -233,7 +227,6 @@ function makeSnakeSquare(row, column) {
 */
 function handleKeyDown(event) {
   // TODO 6a: make the handleKeyDown function register which key is pressed
-  
 }
 
 /* Given a gameSquare (which may be a snakeSquare or the apple), position
