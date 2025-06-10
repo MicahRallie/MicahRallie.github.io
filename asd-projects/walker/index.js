@@ -22,8 +22,8 @@ function runProgram(){
   var walker = {
     walkerX: 0,
     walkerY: 0,
-    walkerSpeedX: 0,
-    walkerSpeedY: 0,
+    speedX: 0,
+    speedY: 0,
   };
 
   // one-time setup
@@ -39,8 +39,8 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    
-
+    repositionGameItem();
+    redrawGameItem();
   }
   
   /* 
@@ -48,15 +48,19 @@ function runProgram(){
   */
   function handleKeyDown(event) {
     if(event.which === KEY.LEFT){
+      walker.speedX = -5;
       console.log("left pressed");
     }
     if(event.which === KEY.UP){
+      walker.speedY = -5;
       console.log("up pressed");
     }
     if(event.which === KEY.DOWN){
+      walker.speedY = 5;
       console.log("down pressed");
     }
     if(event.which === KEY.RIGHT){
+      walker.speedX = 5;
       console.log("right pressed");
     }
   }
@@ -72,6 +76,16 @@ function runProgram(){
 
     // turn off event handlers
     $(document).off();
+  }
+  
+  function repositionGameItem(){
+    walker.walkerX += walker.speedX;
+    walker.walkerY += walker.speedY;
+  }
+
+  function redrawGameItem(){
+    $("walker").css("left", walker.walkerX);
+    $("walker").css("up", walker.walkerY);
   }
   
 }
