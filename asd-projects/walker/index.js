@@ -25,11 +25,13 @@ function runProgram(){
     speedX: 0,
     speedY: 0,
   };
+  var positionX = walker.walkerX;
+  var positionY = walker.walkerY;
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
-
+  $(document).on('keyup', handleKeyUp); 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -40,6 +42,7 @@ function runProgram(){
   */
   function newFrame() {
     repositionGameItem();
+    wallCollision();
     redrawGameItem();
   }
   
@@ -49,19 +52,30 @@ function runProgram(){
   function handleKeyDown(event) {
     if(event.which === KEY.LEFT){
       walker.speedX = -5;
-      console.log("left pressed");
     }
     if(event.which === KEY.UP){
       walker.speedY = -5;
-      console.log("up pressed");
     }
     if(event.which === KEY.DOWN){
       walker.speedY = 5;
-      console.log("down pressed");
     }
     if(event.which === KEY.RIGHT){
       walker.speedX = 5;
-      console.log("right pressed");
+    }
+  }
+
+  function handleKeyUp(event){
+    if(event.which === KEY.LEFT){
+      walker.speedX = 0;
+    }
+    if(event.which === KEY.RIGHT){
+      walker.speedX = 0;
+    }
+    if(event.which === KEY.UP){
+      walker.speedY = 0;
+    }
+    if(event.which === KEY.DOWN){
+      walker.speedY = 0;
     }
   }
 
@@ -79,13 +93,26 @@ function runProgram(){
   }
   
   function repositionGameItem(){
-    walker.walkerX += walker.speedX;
-    walker.walkerY += walker.speedY;
+    positionX += walker.speedX;
+    positionY += walker.speedY;
   }
 
   function redrawGameItem(){
-    $("walker").css("left", walker.walkerX);
-    $("walker").css("up", walker.walkerY);
+    $("#walker").css("left", positionX);
+    $("#walker").css("top", positionY);
+  }
+
+  function wallCollision(){
+    var rightWall = $("#board").width();
+    var bottomWall = $("#board").height();
+    var topWall = 0;
+    var leftWall = 0;
+    if (positionX <= leftWall || positionX >= rightWall){
+      positionX -= walker.speedX;
+    }
+    if (positionY <= topWall || positionY >= bottomWall){
+      positionY -= walker.speedY;
+    }
   }
   
 }
