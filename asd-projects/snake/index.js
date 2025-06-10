@@ -205,23 +205,20 @@ function handleAppleCollision() {
   */
   var row;
   var column;
-  if (snake.tail.direction = "up"){
-    row = snake.tail.row + 1;
-    column = snake.tail.column;
-  }
-  if (snake.tail.direction = "down"){
-    row = snake.tail.row - 1;
-    column = snake.tail.column;
-  }
-  if (snake.tail.direction = "left"){
+
+  if (snake.tail.direction === "left"){
     column = snake.tail.column + 1;
     row = snake.tail.row;
-  }
-  if (snake.tail.direction = "right"){
+  } else if(snake.tail.direction === "right"){
     column = snake.tail.column - 1;
     row = snake.tail.row;
+  } else if(snake.tail.direction === "up"){
+    row = snake.tail.row + 1;
+    column = snake.tail.column;
+  } else if(snake.tail.direction === "down"){
+    row = snake.tail.row - 1;
+    column = snake.tail.column
   }
-
   // code to determine the row and column of the snakeSquare to add to the snake
 
   makeSnakeSquare(row, column);
