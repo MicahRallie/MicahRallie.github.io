@@ -94,10 +94,6 @@ function checkForNewDirection(event) {
   } else if(activeKey === KEY.UP){
     snake.head.direction = "up";
   }
-
-  // FILL IN THE REST
-
-  console.log(snake.head.direction);     // uncomment me!
 }
 
 function moveSnake() {
@@ -111,13 +107,12 @@ function moveSnake() {
   
   */
  /*
- for (var i = 1; 1 < snake.body.length; i++) {
-    var snakeSquare = "???";
+ for (var i = snake.body.length - 1; i < 1; i--) {
+    var snakeSquare = snake.body[i];
 
-    var nextSnakeSquare = "???";
-    var nextRow = "???";
-    var nextColumn = "???";
-    var nextDirection = "???";
+    var nextRow = snake.body[i-1].row;
+    var nextColumn = snake.body[i-1].column;
+    var nextDirection = snake.body[i-1].direction;
 
     snakeSquare.direction = nextDirection;
     snakeSquare.row = nextRow;
@@ -219,7 +214,20 @@ function handleAppleCollision() {
   } else if(snake.tail.direction === "down"){
     row = snake.tail.row - 1;
     column = snake.tail.column;
-  }
+  } /*
+  if (snake.head.direction === "left"){
+    column = snake.head.column + 1;
+    row = snake.head.row;
+  } else if(snake.head.direction === "right"){
+    column = snake.head.column - 1;
+    row = snake.head.row;
+  } else if(snake.head.direction === "up"){
+    row = snake.head.row + 1;
+    column = snake.head.column;
+  } else if(snake.head.direction === "down"){
+    row = snake.head.row - 1;
+    column = snake.head.column;
+  } */
   // code to determine the row and column of the snakeSquare to add to the snake
 
   makeSnakeSquare(row, column);
