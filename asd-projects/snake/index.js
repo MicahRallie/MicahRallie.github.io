@@ -241,7 +241,23 @@ function hasCollidedWithSnake() {
   head and each part of the snake's body also knows its own row and column.
   
   */
+if (snake.body.length > 1){
+for (var i = snake.body.length - 1; i > 0; i--){
+  if (snake.head.column === snake.body[i].column && snake.head.row === snake.body[i].row){
+    return true;
+  }
+  }
+}
 return false;
+ /*if (snake.body.length > 1){
+ for (var i = snake.body.length - 1; i > 0; i--) {
+    var snakeSquare = snake.body[i];
+    if (snakeSquare.column === snake.head.column && snakeSquare.row === snake.head.row){
+      return true;
+    } else{
+      return false;
+    }
+} }*/
 }
 
 function endGame() {
