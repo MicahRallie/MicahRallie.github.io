@@ -249,15 +249,6 @@ for (var i = snake.body.length - 1; i > 0; i--){
   }
 }
 return false;
- /*if (snake.body.length > 1){
- for (var i = snake.body.length - 1; i > 0; i--) {
-    var snakeSquare = snake.body[i];
-    if (snakeSquare.column === snake.head.column && snakeSquare.row === snake.head.row){
-      return true;
-    } else{
-      return false;
-    }
-} }*/
 }
 
 function endGame() {
@@ -375,13 +366,17 @@ function getRandomAvailablePosition() {
   while (!spaceIsAvailable) {
     randomPosition.column = Math.floor(Math.random() * COLUMNS);
     randomPosition.row = Math.floor(Math.random() * ROWS);
-    spaceIsAvailable = true;
-
+    for (var i = snake.body.length - 1; i = 0; i--){
+    if (randomPosition.column === snake.body[i].column && randomPosition.row === snake.body[i].row){
+    spaceIsAvailable = false;
+    }
+    spaceIsAvailable = true;}
     /*
     TODO 13: After generating the random position determine if that position is
     not occupied by a snakeSquare in the snake's body. If it is then set 
     spaceIsAvailable to false so that a new position is generated.
     */
+
   }
 
   return randomPosition;
