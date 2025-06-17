@@ -37,7 +37,11 @@ function applyAndRender() {
 function applyFilter(){
 for(var i = 0; i < image.length; i++){
   for(var j = 0; j < image[i].length; j++){
-    console.log(image[i][j]);
+    var pixel = image[i][j];
+    var pixelArray = rgbStringToArray(pixel);
+    // This is where I’ll modify the color values later
+    var updatedPixel = rgbArrayToString(pixelArray);
+    pixel = updatedPixel;
   }
 }
 }
