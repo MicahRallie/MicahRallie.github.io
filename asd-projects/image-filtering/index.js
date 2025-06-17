@@ -53,6 +53,16 @@ for(var i = 0; i < image.length; i++){
 
 // TODO 6: Create the keepInBounds function
 
+function keepInBounds(number){
+
+if(number < 0){
+  return 0;
+} else if(number > 225){
+  return 225;
+}else{
+  return number;
+}
+}
 
 // TODO 4: Create reddify filter function
 
@@ -62,5 +72,9 @@ function reddify(pixelArray){
 
 // TODO 7 & 8: Create more filter functions
 
+function decreaseBlue(pixelArray){
+    pixelArray[BLUE] -= 50;
+    keepInBounds(pixelArray[BLUE]);
+}
 
 // CHALLENGE code goes below here
