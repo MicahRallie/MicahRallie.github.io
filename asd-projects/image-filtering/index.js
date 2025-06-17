@@ -1,7 +1,7 @@
 // This is a small program. There are only two sections. This first section is what runs
 // as soon as the page loads.
 $(document).ready(function () {
-  $(document).on("ready", applyFilter());
+  applyFilter()
   render($("#display"), image);
   $("#apply").on("click", applyAndRender);
   $("#reset").on("click", resetAndRender);
@@ -40,8 +40,9 @@ for(var i = 0; i < image.length; i++){
     var pixel = image[i][j];
     var pixelArray = rgbStringToArray(pixel);
     // This is where I’ll modify the color values later
+    pixelArray[RED] = 200;
     var updatedPixel = rgbArrayToString(pixelArray);
-    pixel = updatedPixel;
+    image[i][j] = updatedPixel;
   }
 }
 }
