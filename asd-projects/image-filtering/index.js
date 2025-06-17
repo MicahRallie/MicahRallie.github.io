@@ -1,7 +1,7 @@
 // This is a small program. There are only two sections. This first section is what runs
 // as soon as the page loads.
 $(document).ready(function () {
-  applyFilter()
+  applyFilter(reddify);
   render($("#display"), image);
   $("#apply").on("click", applyAndRender);
   $("#reset").on("click", resetAndRender);
@@ -34,13 +34,14 @@ function applyAndRender() {
 
 // TODO 1, 2, 3 & 5: Create the applyFilter function here
 
-function applyFilter(){
+function applyFilter(filterFunction){
 for(var i = 0; i < image.length; i++){
   for(var j = 0; j < image[i].length; j++){
     var pixel = image[i][j];
     var pixelArray = rgbStringToArray(pixel);
-    // This is where I’ll modify the color values later
-    pixelArray[RED] = 200;
+    
+    filterFunction(pixelArray);
+
     var updatedPixel = rgbArrayToString(pixelArray);
     image[i][j] = updatedPixel;
   }
@@ -55,6 +56,9 @@ for(var i = 0; i < image.length; i++){
 
 // TODO 4: Create reddify filter function
 
+function reddify(pixelArray){
+    pixelArray[RED] += 200;
+  }
 
 // TODO 7 & 8: Create more filter functions
 
