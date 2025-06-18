@@ -4,6 +4,7 @@ $(document).ready(function () {
   render($("#display"), image);
   $("#apply").on("click", applyAndRender);
   $("#reset").on("click", resetAndRender);
+  $("#invert").on("click", invertAndRender);
 });
 
 /////////////////////////////////////////////////////////
@@ -21,12 +22,20 @@ function resetAndRender() {
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
 
+  applyFilterNoBackground(ourple);
   applyFilter(reddify);
   applyFilter(increaseGreenByBlue);
-  applyFilterNoBackground(ourple);
   applyFilterNoBackground(increaseRedByGreen);
+  applyFilterNoBackground(decreaseBlue);
 
   // do not change the below line of code
+  render($("#display"), image);
+}
+
+//invert
+
+function invertAndRender() {
+  applyFilterNoBackground(invert);
   render($("#display"), image);
 }
 
@@ -103,13 +112,13 @@ function increaseGreenByBlue(pixelArray){
     return pixelArray[GREEN];
 }
 
-function increaseRedByGreen(){
+function increaseRedByGreen(pixelArray){
     pixelArray[RED] += pixelArray[GREEN];
     keepInBounds(pixelArray[RED]);
     return pixelArray[RED];
 }
 
-function ourple(){
+function ourple(pixelArray){
     pixelArray[RED] += 50;
     pixelArray[BLUE] += 50;
     keepInBounds(pixelArray[RED]);
@@ -118,6 +127,17 @@ function ourple(){
     return pixelArray[BLUE];
   }
 
+function invert(pixelArray){
+  pixelArray[RED] = 225 - pixelArray[RED];
+  pixelArray[BLUE] = 225 - pixelArray[BLUE];
+  pixelArray[GREEN] = 225 - pixelArray[GREEN];
+  keepInBounds(pixelArray[RED]);
+  keepInBounds(pixelArray[BLUE]);
+  keepInBounds(pixelArray[GREEN]);
+  return pixelArray[RED];
+  return pixelArray[BLUE];
+  return pixelArray[GREEN];
+}
 /* was trying something
 
 function getRandomFilter(){
