@@ -1,7 +1,6 @@
 // This is a small program. There are only two sections. This first section is what runs
 // as soon as the page loads.
 $(document).ready(function () {
-  applyFilter(reddify);
   render($("#display"), image);
   $("#apply").on("click", applyAndRender);
   $("#reset").on("click", resetAndRender);
@@ -22,7 +21,10 @@ function resetAndRender() {
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
 
-  
+  applyFilter(reddify);
+  applyFilter(increaseGreenByBlue);
+  applyFilterNoBackground(ourple);
+  applyFilterNoBackground(increaseRedByGreen);
 
   // do not change the below line of code
   render($("#display"), image);
@@ -50,6 +52,21 @@ for(var i = 0; i < image.length; i++){
 
 // TODO 9 Create the applyFilterNoBackground function
 
+function applyFilterNoBackground(filterFunction){
+var backgroundColor = image[0][0];
+
+for(var i = 0; i < image.length; i++){
+  for(var j = 0; j < image[i].length; j++){
+    var pixel = image[i][j];
+    var pixelArray = rgbStringToArray(pixel);
+    if(image[i][j] !== backgroundColor){
+    filterFunction(pixelArray);
+    }
+    var updatedPixel = rgbArrayToString(pixelArray);
+    image[i][j] = updatedPixel;
+  }
+}
+}
 
 // TODO 6: Create the keepInBounds function
 
@@ -68,6 +85,8 @@ if(number < 0){
 
 function reddify(pixelArray){
     pixelArray[RED] += 200;
+    keepInBounds(pixelArray[RED]);
+    return pixelArray[RED];
   }
 
 // TODO 7 & 8: Create more filter functions
@@ -75,6 +94,36 @@ function reddify(pixelArray){
 function decreaseBlue(pixelArray){
     pixelArray[BLUE] -= 50;
     keepInBounds(pixelArray[BLUE]);
+    return pixelArray[BLUE];
 }
 
+function increaseGreenByBlue(pixelArray){
+    pixelArray[GREEN] += pixelArray[BLUE];
+    keepInBounds(pixelArray[GREEN]);
+    return pixelArray[GREEN];
+}
+
+function increaseRedByGreen(){
+    pixelArray[RED] += pixelArray[GREEN];
+    keepInBounds(pixelArray[RED]);
+    return pixelArray[RED];
+}
+
+function ourple(){
+    pixelArray[RED] += 50;
+    pixelArray[BLUE] += 50;
+    keepInBounds(pixelArray[RED]);
+    keepInBounds(pixelArray[BLUE]);
+    return pixelArray[RED];
+    return pixelArray[BLUE];
+  }
+
+/* was trying something
+
+function getRandomFilter(){
+  resetAndRender();
+  var filterArray = [ourple(), increaseGreenByBlue(),increaseGreenByBlue(), decreaseBlue(), reddify()];
+  var filter = (Math.ceil(Math.random * (filterArray.length - 1)))
+  return filterArray.filter;
+}*/
 // CHALLENGE code goes below here
