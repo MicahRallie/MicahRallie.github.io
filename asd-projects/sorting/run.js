@@ -9,10 +9,13 @@ $(document).ready(function(){
 
             if (bubbleSort){
                 bubbleSort(bubbleList);
+                console.log("bubbles");
             }
             if (quickSort){
                 quickSort(quickList, 0, quickList.length-1);
+                console.log("quick");
             }
+            console.log("started");
         }
     })
 })
